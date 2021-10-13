@@ -1,0 +1,24 @@
+<section>
+  Liste des recettes
+  <!-- Si le tableau de recette contient au moins une recette-->
+  <div *ngIf="recettes.length > 0">
+    <!-- Pour chaque recette dans mon tableau de recettes-->
+    <div *ngFor="let item of recettes" class="recette">
+      <p>Nom de la recette : {{ item.nom }}</p>
+      <p>Temps de préparation : {{ item.tempsEnMin }}</p>
+      <p>Cout de la recette : {{ item.cout }}</p>
+    </div>
+    <!-- Bouton qui permet de supprimer la dernière recette du tableau de recette -->
+    <button (click)="supprimerUneRecette()">Supprimer une recette</button>
+  </div>
+  <!-- Si le tableau de recette est vide, on prévient l'utilisateur -->
+  <div *ngIf="recettes.length == 0">
+    Il n'y a pas de recettes en stock actuellement.
+    <!-- Au click, on appelle la fonction de notre composant qui ajoute des recettes à notre
+    tableau de recette -->
+    <button (click)="remplirRecettes()">Ajouter des recettes !</button>
+  </div>
+  <div>
+    L'utilisateur connecté est {{userConnected}}
+  </div>
+</section>
